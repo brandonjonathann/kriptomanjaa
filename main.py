@@ -1,6 +1,7 @@
 from vigenere import *
 from extended_vigenere import *
 from playfair import *
+from one_time_pad import *
 
 def check_alphabet(text):
     checked = []
@@ -39,3 +40,6 @@ elif (cipher == "PLAYFAIR"):
     plaintext = create_plaintext_playfair(plaintext)
     print(playfair_encrypt(plaintext, kunci))
     print(playfair_decrypt(playfair_encrypt(plaintext, kunci), kunci))
+elif (cipher == "ONE TIME PAD"):
+    print(one_time_pad_encrypt(plaintext, kunci))
+    print(one_time_pad_decrypt(one_time_pad_encrypt(plaintext, kunci), kunci))
