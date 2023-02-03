@@ -30,7 +30,6 @@ def create_kunci_playfair(kunci):
             tmp2.append(tmp[5 * i + j])
         result.append(tmp2)
     
-    print(result)
     return(result)
 
 def create_plaintext_playfair(plaintext):
@@ -60,7 +59,7 @@ def create_plaintext_playfair(plaintext):
     if (i != len(tmp)):
         result.append(tmp[len(tmp) - 1])
         result.append('X')
-    print(result)
+
     return(result)
 
 def playfair_encrypt(plaintext, kunci):

@@ -15,6 +15,7 @@ import sqlite3
 import os
 import csv
 import datetime
+import random
 
 class Menu(QMainWindow):
     def __init__(self):
@@ -311,9 +312,8 @@ class OneTimePad(QMainWindow):
         key_awal = self.textEdit_2.toPlainText()
         key_tmp = [x for x in key_awal]
         key = check_alphabet(key_tmp)
-        keyFinal = create_kunci_playfair(key)
-        plaintextFinal = create_plaintext_playfair(plaintext)
-        result = playfair_encrypt(plaintextFinal, keyFinal)
+        keyFinal = create_kunci(plaintext, key)
+        result = one_time_pad_encrypt(plaintext, keyFinal)
         self.textBrowser.setText(result)
 
     def Decrypt(self):
@@ -323,9 +323,8 @@ class OneTimePad(QMainWindow):
         key_awal = self.textEdit_2.toPlainText()
         key_tmp = [x for x in key_awal]
         key = check_alphabet(key_tmp)
-        keyFinal = create_kunci_playfair(key)
-        ciphertextFinal = create_plaintext_playfair(ciphertext)
-        result = playfair_decrypt(ciphertext, keyFinal)
+        keyFinal = create_kunci(ciphertext, key)
+        result = one_time_pad_decrypt(ciphertext, keyFinal)
         self.textBrowser.setText(result)
     
     def AddFile(self):
@@ -365,7 +364,18 @@ class OneTimePad(QMainWindow):
         file.close()
 
     def RandKey(self):
-        print('')
+        fname = QFileDialog.getOpenFileName(self, "Choose File", "E:\Kripto\kriptomanjaa", "All Files (*)")
+        with open(fname[0], 'r') as file :
+            lines = file.read().rstrip()
+        tmp = [x for x in lines]
+        tmp2 = []
+        randomnumber = random.randint(0, 19999)
+        plaintextlen = len([x for x in self.textEdit.toPlainText()])
+        for i in range(plaintextlen):
+            tmp2.append(tmp[(randomnumber + i) % 20000])
+        str1 = ""
+        tmp3 = str1.join(tmp2)
+        self.textEdit_2.setPlainText(str(tmp3))
 
 class Enigma(QMainWindow):
     def __init__(self):
@@ -389,8 +399,7 @@ class Enigma(QMainWindow):
         print("")
 
     def Decrypt(self):
-        loadUi("decrypt.ui", self)
-        self.label.setText("Cipher Text")
+        print("")
     
     def AddFile(self):
         print("")
@@ -412,33 +421,4 @@ widget.show()
 try:
     sys.exit(app.exec_())
 except:
-    print("Exiting")
-
-# cipher = input("Pilih cipher: ")
-# plaintext_awal = input("Masukkan plaintext: ")
-# plaintext_tmp = [x for x in plaintext_awal]
-# plaintext = check_alphabet(plaintext_tmp)
-
-# if (cipher == "ONE TIME PAD"):
-#     kunci = generate_kunci(plaintext)
-#     print(one_time_pad_encrypt(plaintext, kunci))
-#     print(one_time_pad_decrypt(one_time_pad_encrypt(plaintext, kunci), kunci))
-
-# else: 
-#     kunci_awal = input("Masukkan kunci: ")
-#     kunci_tmp = [x for x in kunci_awal]
-#     kunci = check_alphabet(kunci_tmp)
-
-#     if (cipher == "VIGENERE"):
-#         kunci = create_kunci(plaintext, kunci)
-#         print(vigenere_encrypt(plaintext, kunci))
-#         print(vigenere_decrypt(vigenere_encrypt(plaintext, kunci), kunci))
-#     elif (cipher == "EXTENDED VIGENERE"):
-#         kunci = create_kunci(plaintext_tmp, kunci_tmp)
-#         print(extended_vigenere_encrypt(plaintext_tmp, kunci))
-#         print(extended_vigenere_decrypt(extended_vigenere_encrypt(plaintext_tmp, kunci), kunci))
-#     elif (cipher == "PLAYFAIR"):
-#         kunci = create_kunci_playfair(kunci)
-#         plaintext = create_plaintext_playfair(plaintext)
-#         print(playfair_encrypt(plaintext, kunci))
-#         print(playfair_decrypt(playfair_encrypt(plaintext, kunci), kunci))
+    print("Exit Program")

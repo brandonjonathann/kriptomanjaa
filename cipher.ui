@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>903</width>
+    <height>674</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -290,13 +290,43 @@
      <string>Text</string>
     </property>
    </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>761</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 255, 255);</string>
+    </property>
+   </widget>
+   <zorder>widget</zorder>
+   <zorder>pushButton_10</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label</zorder>
+   <zorder>textEdit</zorder>
+   <zorder>pushButton_11</zorder>
+   <zorder>label_3</zorder>
+   <zorder>textEdit_2</zorder>
+   <zorder>label_4</zorder>
+   <zorder>textBrowser</zorder>
+   <zorder>pushButton_12</zorder>
+   <zorder>pushButton_13</zorder>
+   <zorder>pushButton_6</zorder>
+   <zorder>pushButton_7</zorder>
+   <zorder>pushButton_8</zorder>
+   <zorder>pushButton_9</zorder>
+   <zorder>label_5</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>903</width>
      <height>26</height>
     </rect>
    </property>
