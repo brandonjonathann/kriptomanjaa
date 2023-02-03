@@ -4,7 +4,7 @@ def vigenere_encrypt(plaintext, kunci_asli):
         x = ord(plaintext[i]) - 65
         y = ord(kunci_asli[i]) - 65
         result.append(chr((x + y) % 26 + 65))
-    return(result)
+    return(''.join(result))
 
 def vigenere_decrypt(ciphertext, kunci_asli):
     result = []
@@ -12,4 +12,4 @@ def vigenere_decrypt(ciphertext, kunci_asli):
         x = ord(ciphertext[i]) - 65
         y = ord(kunci_asli[i]) - 65
         result.append(chr((x - y) % 26 + 65))
-    return(result)
+    return(''.join(result))

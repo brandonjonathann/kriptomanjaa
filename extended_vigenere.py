@@ -4,7 +4,7 @@ def extended_vigenere_encrypt(plaintext, kunci_extended):
         x = ord(plaintext[i]) 
         y = ord(kunci_extended[i]) 
         result.append(chr((x + y) % 256))
-    return(result)
+    return(''.join(result))
 
 def extended_vigenere_decrypt(ciphertext, kunci_extended):
     result = []
@@ -12,4 +12,4 @@ def extended_vigenere_decrypt(ciphertext, kunci_extended):
         x = ord(ciphertext[i]) 
         y = ord(kunci_extended[i])
         result.append(chr((x - y) % 256))
-    return(result)
+    return(''.join(result))

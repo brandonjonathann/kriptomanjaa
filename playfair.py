@@ -87,7 +87,7 @@ def playfair_encrypt(plaintext, kunci):
         else:
             result.append(kunci[x1][y2])
             result.append(kunci[x2][y1])
-    return(result)
+    return(''.join(result))
 
 def playfair_decrypt(ciphertext, kunci):
     result = []
@@ -113,4 +113,4 @@ def playfair_decrypt(ciphertext, kunci):
         else:
             result.append(kunci[x1][y2])
             result.append(kunci[x2][y1])
-    return(result)
+    return(''.join(result))
